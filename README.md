@@ -15,8 +15,9 @@ This Python script calculates the phase of the Moon for a given date using the l
 - Tkinter
 
 If Tkinter is not installed, you can install it using the following command:
-
-pip install tk
+    ```
+    pip install tk
+    ```
 
 
 ## How to Use
@@ -25,7 +26,7 @@ pip install tk
 2. Open a terminal and navigate to the project folder.
 3. Run the script:
     ```
-    python moon_phase_calculator.py
+    python3 moon_phase_calculator.py
     ```
 4. A window will appear where you can enter a date in the format `YYYY-MM-DD`.
 5. Click the "Calculate Moon Phase" button to get the moon phase for the given date.
