@@ -1,35 +1,28 @@
 import tkinter as tk
+import ephem
 from datetime import datetime
 
-# Known New Moon date (24th July 2025)
-NEW_MOON_DATE = datetime(2025, 7, 24)
-
-# Length of the lunar cycle in days (approx)
-LUNAR_CYCLE = 29.53
-
-# Function to calculate the moon phase
+# Function to get the moon phase using ephem
 def get_moon_phase(date):
-    # Calculate the number of days since the known New Moon date
-    days_since_new_moon = (date - NEW_MOON_DATE).days
+    # Convert the date to the format that ephem understands
+    date_object = ephem.Date(date)
 
-    # Find the phase of the moon
-    phase = (days_since_new_moon % LUNAR_CYCLE) / LUNAR_CYCLE
+    # Get the moon phase using ephem
+    phase = ephem.Moon(date_object).phase
 
-    # Determine the moon phase based on the phase value
-    if 0.0 <= phase < 0.03:
+    # Classify the moon phase based on the percentage of the lunar cycle
+    if phase < 1:
         return "New Moon"
-    elif 0.03 <= phase < 0.25:
-        return "First Quarter Waxing Crescent"
-    elif 0.25 <= phase < 0.5:
+    elif phase < 50:
+        return "Waxing Crescent"
+    elif phase == 50:
         return "First Quarter"
-    elif 0.5 <= phase < 0.75:
-        return "Last Quarter Waxing Gibbous"
-    elif 0.75 <= phase < 1.0:
+    elif phase < 99:
+        return "Waning Gibbous"
+    elif phase == 99:
         return "Full Moon"
-    elif 0.97 <= phase < 1.0:
-        return "Waning Crescent"
     else:
-        return "Unknown Phase"
+        return "Invalid Phase"
 
 # Function to handle the button click event
 def on_button_click():

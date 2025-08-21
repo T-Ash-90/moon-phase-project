@@ -1,23 +1,18 @@
 # Moon Phase Project
 
-This Python script calculates the phase of the Moon for a given date using the lunar cycle. It utilizes `Tkinter` for the graphical user interface (GUI), allowing users to input a date and get the corresponding moon phase.
+This Python script calculates the phase of the Moon for a given date using the lunar cycle. It utilizes `Tkinter` for the graphical user interface (GUI), and `ephem` for astronomical calculations.
 
 ## Features
 
 - Simple user interface using Tkinter.
 - Supports date input in the format `YYYY-MM-DD`.
-- Calculates the moon phase based on the number of days since a known New Moon date (July 24th 2025).
 - Displays the corresponding moon phase (e.g., New Moon, First Quarter, Full Moon, etc.).
 
 ## Requirements
 
 - Python 3.x
 - Tkinter
-
-If Tkinter is not installed, you can install it using the following command:
-    ```
-    pip install tk
-    ```
+- ephem
 
 
 ## How to Use
